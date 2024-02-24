@@ -45,7 +45,7 @@ jobs:
         python-version: ${{ env.PYTHON_VERSION }}
     - name: Install build dependencies
       run: |
-        echo github.ref
+        echo "$github.ref"
         pip install build
     - name: Build package
       run: python -m build -C--global-option=egg_info -C--global-option=--tag-build=0.2 --wheel 
