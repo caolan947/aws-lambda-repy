@@ -16,7 +16,6 @@ env:
   PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
   PYTHON_VERSION: '3.10'
   APPROVERS: caolan947
-  TAG: github.ref
 
 jobs:
   test:
@@ -46,7 +45,7 @@ jobs:
         python-version: ${{ env.PYTHON_VERSION }}
     - name: Install build dependencies
       run: |
-        echo ${{ env.TAG }}
+        echo github.ref
         pip install build
     - name: Build package
       run: python -m build -C--global-option=egg_info -C--global-option=--tag-build=0.2 --wheel 
