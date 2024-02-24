@@ -25,10 +25,9 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - name: Install dependencies
+      - name: Install test dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install build
       # - name: Test with unittest
       #   run: |
       #     cd libname
@@ -44,6 +43,9 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ env.PYTHON_VERSION }}
+    - name: Install build dependencies
+      run: |
+        pip install build
     - name: Build package
       run: python -m build
     - name: Publish package
@@ -62,6 +64,9 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ env.PYTHON_VERSION }}
+    - name: Install build dependencies
+      run: |
+        pip install build
     - name: Build package
       run: python -m build
     - name: Publish package
