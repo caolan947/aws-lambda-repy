@@ -10,7 +10,7 @@ setup(
     author="caolan947 (Caolán Daly)",
     author_email="<caolan.day94@gmail.com>",
     description=DESCRIPTION,
-     long_description=LONG_DESCRIPTION,
+    long_description=LONG_DESCRIPTION,
     packages=find_packages(),
     install_requires=[],
     keywords=[],

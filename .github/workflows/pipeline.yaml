@@ -13,6 +13,7 @@ env:
   TEST_PYPI_API_TOKEN: ${{ secrets.TEST_PYPI_API_TOKEN }}
   PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
   PYTHON_VERSION: '3.10'
+  APPROVERS: caolan947
 
 jobs:
   test:
@@ -35,7 +36,7 @@ jobs:
 
   build-n-publish-test:
     name: Build and publish to Test PyPI
-    if: github.event_name == 'push'
+    if: startsWith(github.ref, 'refs/tags')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -57,9 +58,17 @@ jobs:
 
   build-n-publish:
     name: Build and publish to PyPI
+    #if: startsWith(github.ref, 'refs/tags')
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
+    - uses: trstringer/manual-approval@v1
+      with:
+        issue-title: "Deploying to PyPi"
+        issue-body: "Please approve or deny the deployment"
+        timeout-minutes: 60
+        approvers: ${{ env.APPROVERS }}
+
     - uses: actions/checkout@master
     - name: Set up Python ${{ env.PYTHON_VERSION }}
       uses: actions/setup-python@v1
@@ -71,7 +80,7 @@ jobs:
     - name: Build package
       run: python -m build
     - name: Publish package
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
         password: ${{ env.PYPI_API_TOKEN }}
