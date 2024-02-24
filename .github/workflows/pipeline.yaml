@@ -45,10 +45,10 @@ jobs:
         python-version: ${{ env.PYTHON_VERSION }}
     - name: Install build dependencies
       run: |
-        echo "tag: $GITHUB_REF"
+        echo "tag: $GITHUB_REF ${GITHUB_REF##*/}"
         pip install build
     - name: Build package
-      run: python -m build -C--global-option=egg_info -C--global-option=--tag-build=0.2 --wheel 
+      run: python -m build -C--global-option=egg_info -C--global-option=--tag-build=${GITHUB_REF##*/} --wheel 
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:

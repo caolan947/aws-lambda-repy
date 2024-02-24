@@ -3,13 +3,13 @@ from pkg_resources import get_distribution
 
 __version__ = get_distribution('foobar').version
 
-VERSION = ''
+VERSION = '0'
 DESCRIPTION = 'aws-lambda-repy description'
 LONG_DESCRIPTION = 'aws-lambda-repy long description'
 
 setup(
     name="aws-lambda-repy",
-    #version=__version__,
+    version=VERSION,
     author="caolan947 (Caolán Daly)",
     author_email="<caolan.day94@gmail.com>",
     description=DESCRIPTION,
