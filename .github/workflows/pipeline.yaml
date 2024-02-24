@@ -63,10 +63,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: trstringer/manual-approval@v1
+      timeout-minutes: 60
       with:
         issue-title: "Deploying to PyPi"
         issue-body: "Please approve or deny the deployment"
-        timeout-minutes: 60
         approvers: ${{ env.APPROVERS }}
 
     - uses: actions/checkout@master
