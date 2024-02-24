@@ -46,8 +46,8 @@ jobs:
     - name: Install build dependencies
       run: |
         pip install build
-    - name: Build package
-      run: python -m build
+    - name: Build package ${GITHUB_REF##*/}
+      run: python -m build -C--global-option=egg_info -C--global-option=--tag-build=${GITHUB_REF##*/} --wheel 
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:

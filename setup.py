@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.1'
+VERSION = 'v-0.'
 DESCRIPTION = 'aws-lambda-repy description'
 LONG_DESCRIPTION = 'aws-lambda-repy long description'
 
