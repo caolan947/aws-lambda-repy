@@ -9,7 +9,7 @@ LONG_DESCRIPTION = 'aws-lambda-repy long description'
 
 setup(
     name="aws-lambda-repy",
-    version=__version__,
+    #version=__version__,
     author="caolan947 (Caolán Daly)",
     author_email="<caolan.day94@gmail.com>",
     description=DESCRIPTION,
