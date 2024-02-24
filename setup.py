@@ -1,7 +1,4 @@
 from setuptools import setup, find_packages
-from pkg_resources import get_distribution
-
-__version__ = get_distribution('foobar').version
 
 VERSION = '0'
 DESCRIPTION = 'aws-lambda-repy description'
