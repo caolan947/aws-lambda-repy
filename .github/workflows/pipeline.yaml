@@ -34,8 +34,8 @@ jobs:
 
   build-and-publish-test:
     name: Build and publish to Test PyPI
-    #if: startsWith(github.ref, 'refs/tags/v')
-    #needs: [test]    
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [test]    
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -45,9 +45,8 @@ jobs:
         python-version: ${{ env.PYTHON_VERSION }}
     - name: Install build dependencies
       run: |
-        echo "tag: $GITHUB_REF ${GITHUB_REF##*/}"
         pip install build
-    - name: Build package
+    - name: Build package ${GITHUB_REF##*/}
       run: python -m build -C--global-option=egg_info -C--global-option=--tag-build=${GITHUB_REF##*/} --wheel 
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
