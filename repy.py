@@ -1,8 +1,6 @@
-
-
 import json
 
-# TODO unit test, integration test, add logging, organise into modules
+# TODO unit test, integration test, add logging, organise into modules, docstring
 class EventFactory():
     def __init__(self, event):
         self.event = event
@@ -64,13 +62,3 @@ class Response():
         print(f"Formed response {self.response}")
 
         return self.response
-
-
-
-
-api= {"body": "{\"username\": \"example@email.com\", \"password\": \"password\"}"}
-sqs = {"Records": [{"body": "{\"username\": \"example@email.com\", \"password\": \"password\"}"}]}
-print(f"API Gateway: {EventFactory(api).get_event_parser()}")
-print(f"SQS: {EventFactory(sqs).get_event_parser()}")
-
-
