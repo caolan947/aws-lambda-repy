@@ -1,9 +1,13 @@
 from setuptools import setup, find_packages
 import os
 
-VERSION = 'v-0.0.2'
+VERSION = os.environ.get('BUILD_VERSION')
 DESCRIPTION = 'aws-lambda-repy description'
 LONG_DESCRIPTION = 'aws-lambda-repy long description'
+
+print("*************************************")
+print(VERSION)
+print("*************************************")
 
 setup(
     name="aws-lambda-repy",
