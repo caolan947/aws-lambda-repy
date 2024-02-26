@@ -34,7 +34,7 @@ jobs:
 
   build-and-publish-test:
     name: Build and publish to Test PyPI
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v-')
     needs: [test]    
     runs-on: ubuntu-latest
     steps:
@@ -46,10 +46,8 @@ jobs:
     - name: Install build dependencies
       run: |
         pip install build
-    - name: Build package ${GITHUB_REF##*/}
+    - name: Build package
       run: |
-        BUILD_VERSION=${GITHUB_REF##*/}
-        echo ${GITHUB_REF##*/}
         python -m build
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
@@ -60,7 +58,7 @@ jobs:
 
   build-and-publish:
     name: Build and publish to PyPI
-    if: startsWith(github.ref, 'refs/tags/v')
+    if: startsWith(github.ref, 'refs/tags/v-')
     needs: [build-and-publish-test]    
     permissions:
       issues: write
@@ -82,7 +80,8 @@ jobs:
       run: |
         pip install build
     - name: Build package
-      run: python -m build
+      run: |
+        python -m build
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
