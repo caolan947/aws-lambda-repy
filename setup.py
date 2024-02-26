@@ -7,6 +7,7 @@ LONG_DESCRIPTION = 'aws-lambda-repy long description'
 
 print("*************************************")
 print(VERSION)
+print(os.environ)
 print("*************************************")
 
 setup(
