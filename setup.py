@@ -5,14 +5,9 @@ VERSION = os.environ['GITHUB_REF_NAME'].removeprefix('v-')
 DESCRIPTION = 'aws-lambda-repy description'
 LONG_DESCRIPTION = 'aws-lambda-repy long description'
 
-print("*************************************")
-print(VERSION)
-print(os.environ['GITHUB_REF_NAME'])
-print("*************************************")
-
 setup(
     name="aws-lambda-repy",
-    version=os.environ.get('BUILD_VERSION'),
+    version=VERSION,
     author="caolan947 (Caolán Daly)",
     author_email="<caolan.day94@gmail.com>",
     description=DESCRIPTION,
