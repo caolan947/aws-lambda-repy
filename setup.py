@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 import os
 
-VERSION = os.environ.get('BUILD_VERSION')
+VERSION = os.environ['GITHUB_REF_NAME'].removeprefix('v-')
 DESCRIPTION = 'aws-lambda-repy description'
 LONG_DESCRIPTION = 'aws-lambda-repy long description'
 
 print("*************************************")
 print(VERSION)
-print(os.environ)
+print(os.environ['GITHUB_REF_NAME'])
 print("*************************************")
 
 setup(
