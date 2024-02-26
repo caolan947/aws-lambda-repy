@@ -53,7 +53,7 @@ jobs:
         pip install build
     - name: Build package ${{steps.get-tag.outputs.tag}}
       run: |
-        BUILD_VERSION={{steps.get-tag.outputs.tag}}
+        BUILD_VERSION=${{steps.get-tag.outputs.tag}}
         python -m build
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@release/v1
