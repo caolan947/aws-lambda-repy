@@ -22,5 +22,6 @@ setup(
         "Operating System :: Unix",
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: Microsoft :: Windows",
-    ]
+    ],
+    py_modules=['repy']
 )
