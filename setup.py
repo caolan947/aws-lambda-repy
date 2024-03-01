@@ -2,11 +2,11 @@ from setuptools import setup, find_packages
 import os
 
 VERSION = os.environ['GITHUB_REF_NAME'].removeprefix('v-')
-DESCRIPTION = 'aws-lambda-repy description'
-LONG_DESCRIPTION = 'aws-lambda-repy long description'
+DESCRIPTION = 'lambdarepy description'
+LONG_DESCRIPTION = 'lambdarepy long description'
 
 setup(
-    name="aws-lambda-repy",
+    name="lambdarepy",
     version=VERSION,
     author="caolan947 (Caolán Daly)",
     author_email="<caolan.day94@gmail.com>",
