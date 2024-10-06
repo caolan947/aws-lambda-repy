@@ -17,10 +17,6 @@ env:
   PYTHON_VERSION: '3.10'
   APPROVERS: caolan947
 
-#TODO run unit tests in pipeline
-#TODO run integration tests in pipeline
-#TODO formalise pipeline steps
-
 jobs:
   test:
     name: Running automated tests
