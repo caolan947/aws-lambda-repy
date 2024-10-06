@@ -37,10 +37,10 @@ jobs:
           python -m pip install --upgrade pip
       - name: Execute unit tests
         run: |
-          python -m unittest tests.unit.lambdarepy
+          python -m unittest discover tests.unit.lambdarepy
       - name: Execute integration tests
         run: |
-          python -m unittest tests.integration.lambdarepy
+          python -m unittest discover tests.integration.lambdarepy
 
   build-and-publish-test:
     name: Build and publish to Test PyPI
