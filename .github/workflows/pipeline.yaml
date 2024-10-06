@@ -17,9 +17,13 @@ env:
   PYTHON_VERSION: '3.10'
   APPROVERS: caolan947
 
+#TODO run unit tests in pipeline
+#TODO run integration tests in pipeline
+#TODO formalise pipeline steps
+
 jobs:
   test:
-    name: Running unit tests
+    name: Running automated tests
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
@@ -31,6 +35,12 @@ jobs:
       - name: Install test dependencies
         run: |
           python -m pip install --upgrade pip
+      - name: Execute unit tests
+        run: |
+          python -m unittest tests.unit.lambdarepy
+      - name: Execute integration tests
+        run: |
+          python -m unittest tests.integration.lambdarepy
 
   build-and-publish-test:
     name: Build and publish to Test PyPI
