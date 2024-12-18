@@ -41,12 +41,13 @@ class TestResponse(unittest.TestCase):
     def test_to_response(self):
         expected_result = {
             'statusCode': 200, 
-            'body': 
-            {
-                'error': False,
-                'message': 'This is a fake message',
-                'data': fake_response_data
-            }
+            'body': repr(
+                {
+                    'error': False,
+                    'message': 'This is a fake message',
+                    'data': fake_response_data
+                }
+            )
         }
         actual_result = no_error_response.to_response()
 

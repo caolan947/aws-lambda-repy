@@ -18,7 +18,7 @@ class Response():
     def to_response(self):
         self.response = {
             "statusCode": self.status_code,
-            "body": self.body_content
+            "body": repr(self.body_content)
         }
         
         print(f"Formed response {self.response}")
