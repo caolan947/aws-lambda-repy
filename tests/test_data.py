@@ -42,5 +42,5 @@ no_error_response = Response(
 
 fake_response = {
     "statusCode": 200,
-    "body": fake_no_error_body_content
+    "body": repr(fake_no_error_body_content)
 }
